@@ -1,8 +1,8 @@
-# RepoMind
+# ProjectOracle
 
-AI-powered repository intelligence dashboard for understanding software architecture, dependencies, impact risk, and technical debt.
+ProjectOracle is an AI-powered repository intelligence dashboard for understanding software architecture, dependencies, impact risk, and technical debt.
 
-RepoMind helps developers quickly understand unfamiliar codebases by combining architecture visualization, dependency mapping, impact analysis, and technical debt inspection into a single interactive dashboard.
+Originally developed as ProjectOracle during the CyOps build process, ProjectOracle helps developers quickly understand unfamiliar codebases by combining architecture visualization, dependency mapping, impact analysis, and technical debt inspection into a single interactive dashboard.
 
 ---
 
@@ -24,7 +24,7 @@ Answering these questions typically requires extensive manual code exploration.
 
 ## Solution
 
-RepoMind provides a visual repository intelligence dashboard that combines architecture mapping, dependency analysis, impact assessment, and technical debt inspection into a single interface.
+ProjectOracle provides a visual repository intelligence dashboard that combines architecture mapping, dependency analysis, impact assessment, and technical debt inspection into a single interface.
 
 The dashboard enables developers to:
 
@@ -90,7 +90,7 @@ Lists the most significant technical debt items per repository, including:
 
 ### Multi-Repository Demo
 
-RepoMind currently supports:
+ProjectOracle currently supports:
 
 * `acme/payments-platform`
 * `stellar/orbit-ui`
@@ -166,7 +166,7 @@ ImpactAnalysis --> TechDebtSummary[Technical Debt Summary]
 
 ### Architecture Overview
 
-RepoMind follows a panel-based architecture built on Next.js 14 and TypeScript. Repository data is loaded from a deterministic mock dataset and shared across all analysis views, ensuring reproducible results and consistent demonstrations.
+ProjectOracle follows a panel-based architecture built on Next.js 14 and TypeScript. Repository data is loaded from a deterministic mock dataset and shared across all analysis views, ensuring reproducible results and consistent demonstrations.
 
 The dashboard is organized into five primary analysis modules:
 
@@ -212,7 +212,7 @@ Architecture Map and Dependency Graph are rendered using React Flow and loaded t
 
 Repository selection and module selection are synchronized through URL parameters, enabling reproducible analysis views and direct linking to specific repository states.
 
-This architecture allowed RepoMind to achieve a Lighthouse Performance score of **100/100** while maintaining responsive graph-based visualizations and a modular dashboard structure.
+This architecture allowed ProjectOracle to achieve a Lighthouse Performance score of **100/100** while maintaining responsive graph-based visualizations and a modular dashboard structure.
 
 ---
 
@@ -297,7 +297,7 @@ http://localhost:3000
 
 ## Built with CyOps
 
-RepoMind was developed using CyOps multi-agent workflows.
+ProjectOracle was developed using CyOps multi-agent workflows.
 
 Development lifecycle:
 
@@ -352,4 +352,4 @@ CyOps was used for planning, implementation, review, validation, and project com
 
 ✅ Acceptance Criteria Complete
 
-RepoMind is ready for demonstration and submission.
+ProjectOracle is ready for demonstration and submission.
