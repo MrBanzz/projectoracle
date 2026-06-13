@@ -23,7 +23,7 @@ export default function Page() {
       </Suspense>
 
       <main className="min-w-0 overflow-y-auto">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-8 lg:px-8">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pt-4 pb-8 lg:px-8">
           <Suspense fallback={null}>
             <RepoUrlInput />
           </Suspense>
