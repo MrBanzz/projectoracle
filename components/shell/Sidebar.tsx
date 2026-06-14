@@ -99,10 +99,10 @@ export function Sidebar({ items = DEFAULT_ITEMS, className }: SidebarProps) {
         </span>
         <div className="hidden min-w-0 flex-col leading-tight lg:flex">
           <span className="truncate font-mono text-[11px] uppercase tracking-[0.22em] text-text-muted">
-            Repo
+            Project
           </span>
           <span className="truncate font-mono text-sm font-semibold text-text-primary">
-            Mind
+            Oracle
           </span>
         </div>
       </div>
