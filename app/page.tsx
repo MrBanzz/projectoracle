@@ -24,8 +24,8 @@ export default function Page() {
         <TopBar />
       </Suspense>
 
-      <main className="flex min-w-0 flex-1 justify-center overflow-y-auto">
-        <div className="flex w-full max-w-[1280px] flex-col gap-6 px-6 py-6 lg:px-8 xl:px-10">
+      <main className="flex min-w-0 flex-1 justify-center overflow-y-auto xl:pr-8 2xl:pr-12">
+        <div className="flex w-full max-w-[1440px] flex-col gap-6 px-6 py-6 lg:px-10 xl:px-14 2xl:px-16">
           <Suspense fallback={null}>
             <RepoUrlInput />
           </Suspense>
