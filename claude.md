@@ -1,4 +1,4 @@
-# RepoMind project standards
+# ProjectOracle project standards
 
 This file defines how agents (Claude, others) should work in this repository.
 

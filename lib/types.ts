@@ -1,5 +1,5 @@
 /**
- * Cross-cutting types for the RepoMind mock data layer.
+ * Cross-cutting types for the ProjectOracle mock data layer.
  *
  * Types defined here are referenced by both the mock datasets and the
  * presentation components. They are intentionally narrow: anything that
