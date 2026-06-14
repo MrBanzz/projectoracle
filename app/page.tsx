@@ -16,13 +16,13 @@ export const dynamic = "force-dynamic";
 
 export default function Page() {
   return (
-    <div className="grid min-h-screen grid-cols-[auto_1fr] grid-rows-[auto_1fr] bg-surface-base">
+    <div className="flex min-h-screen bg-surface-base">
       <Sidebar />
       <Suspense fallback={null}>
         <TopBar />
       </Suspense>
 
-      <main className="min-w-0 overflow-y-auto">
+      <main className="min-w-0 flex-1 overflow-y-auto">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pt-4 pb-8 lg:px-8">
           <Suspense fallback={null}>
             <RepoUrlInput />
