@@ -16,37 +16,26 @@ export const dynamic = "force-dynamic";
 
 export default function Page() {
   return (
-    <div className="flex min-h-screen bg-surface-base">
-      <Sidebar />
+  <div className="flex min-h-screen bg-surface-base">
+    <Sidebar />
+
+    <div className="flex min-w-0 flex-1 flex-col">
       <Suspense fallback={null}>
         <TopBar />
       </Suspense>
 
-      <main className="min-w-0 flex-1 overflow-y-auto">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pt-4 pb-8 lg:px-8">
+      <main className="flex min-w-0 flex-1 justify-center overflow-y-auto">
+        <div className="flex w-full max-w-[1280px] flex-col gap-6 px-6 py-6 lg:px-8 xl:px-10">
           <Suspense fallback={null}>
             <RepoUrlInput />
           </Suspense>
 
-          {/* AC-10: page-level guard for unknown repos. When the
-              `?repo=` value is not in the catalog, this renders a
-              full-width "Repository not in demo catalog" empty state
-              with sample-repo buttons + a clear-param link. When
-              `?repo=` is null or matches a seeded entry, it renders
-              the five panels unchanged. The per-panel
-              UnknownRepoState branches are kept as defensive
-              fallbacks for the case where a panel is rendered in
-              isolation. */}
           <Suspense fallback={null}>
             <UnknownRepoFallback>
               <PanelSlot label="02 · Repository" aria="Loading repository overview">
                 <RepoOverview />
               </PanelSlot>
-              {/* AC-11: the two React Flow panels live in a 2-col
-                  grid at the `lg` breakpoint (≥1024px) and stack to
-                  a single column below it. The grid lives in a
-                  `<div>` rather than re-wrapping the slots so the
-                  per-slot Suspense fallbacks still work independently. */}
+
               <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                 <PanelSlot label="03 · Architecture Map" aria="Loading architecture map">
                   <ArchitectureMap />
@@ -55,9 +44,11 @@ export default function Page() {
                   <DependencyGraph />
                 </PanelSlot>
               </div>
+
               <PanelSlot label="05 · Impact Analysis" aria="Loading impact analysis">
                 <ImpactAnalysis />
               </PanelSlot>
+
               <PanelSlot label="06 · Tech Debt Summary" aria="Loading tech debt summary">
                 <TechDebtSummary />
               </PanelSlot>
@@ -66,6 +57,7 @@ export default function Page() {
         </div>
       </main>
     </div>
+  </div>
   );
 }
 
