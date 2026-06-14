@@ -237,6 +237,8 @@ function LoadedState({
 
         <AffectedFileList files={impact.transitive} caption="transitively affected" />
 
+        <AIRecommendationSummary module={module} impact={impact} />
+
         <RecommendationList items={impact.recommendations} />
       </div>
     </section>
@@ -309,6 +311,79 @@ function ImpactStats({
         hint="in the full downstream closure"
         tone="magenta"
       />
+    </div>
+  );
+}
+
+function AIRecommendationSummary({
+  module,
+  impact,
+}: {
+  module: DepNode;
+  impact: ImpactReport;
+}) {
+  const riskText =
+  impact.risk === "CRITICAL"
+    ? "critical-risk"
+    : impact.risk === "HIGH"
+      ? "high-risk"
+      : impact.risk === "MEDIUM"
+        ? "medium-risk"
+        : "low-risk";
+
+  return (
+    <div className="rounded-lg border border-accent-cyan/30 bg-accent-cyan/5 p-4">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent-cyan">
+            AI Engineering Recommendations
+          </p>
+          <h3 className="mt-1 font-mono text-sm font-semibold text-text-primary">
+            Agent-assisted change strategy
+          </h3>
+        </div>
+        <span className="rounded border border-accent-cyan/30 bg-surface-base px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-cyan">
+          simulated agent output
+        </span>
+      </div>
+
+      <p className="mt-3 text-sm leading-relaxed text-text-muted">
+        Based on the selected module{" "}
+        <code className="font-mono text-accent-cyan">{module.id}</code>, its{" "}
+        <span className="text-text-primary">{module.inCount}</span> inbound
+        dependencies, <span className="text-text-primary">{module.outCount}</span>{" "}
+        outbound dependencies, and the{" "}
+        <span className="text-text-primary">{riskText}</span> impact profile,
+        ProjectOracle recommends treating this change as an agent-reviewed
+        engineering task before merge.
+      </p>
+
+      <ul className="mt-4 grid gap-2 text-sm text-text-muted md:grid-cols-3">
+        <li className="rounded border border-border-subtle bg-surface-base/60 p-3">
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-dim">
+            01 · Guardrails
+          </span>
+          <p className="mt-1">
+            Add targeted tests around affected paths before changing this module.
+          </p>
+        </li>
+        <li className="rounded border border-border-subtle bg-surface-base/60 p-3">
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-dim">
+            02 · Rollout
+          </span>
+          <p className="mt-1">
+            Use a staged rollout or feature flag when the blast radius is elevated.
+          </p>
+        </li>
+        <li className="rounded border border-border-subtle bg-surface-base/60 p-3">
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-dim">
+            03 · Review
+          </span>
+          <p className="mt-1">
+            Review directly connected modules before merging the change.
+          </p>
+        </li>
+      </ul>
     </div>
   );
 }
