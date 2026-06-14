@@ -36,7 +36,7 @@ export default function Page() {
                 <RepoOverview />
               </PanelSlot>
 
-              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-start">
                 <PanelSlot label="03 · Architecture Map" aria="Loading architecture map">
                   <ArchitectureMap />
                 </PanelSlot>
