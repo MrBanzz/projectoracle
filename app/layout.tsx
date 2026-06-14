@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "reactflow/dist/style.css";
 
 export const metadata: Metadata = {
-  title: "RepoMind",
+  title: "ProjectOracle",
   description:
     "Architecture-aware impact analysis for any GitHub repository. Mock-data demo.",
 };

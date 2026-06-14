@@ -10,8 +10,6 @@ import ReactFlow, {
   type ReactFlowProps,
 } from "reactflow";
 
-import "reactflow/dist/style.css";
-
 import { ArchNode, type ArchFlowNode } from "@/components/graph/ArchNode";
 import { miniMapNodeColor } from "@/lib/palette";
 import type { ArchEdge, ArchEdgeKind, ArchGraph } from "@/lib/types";

@@ -12,8 +12,6 @@ import ReactFlow, {
   type ReactFlowProps,
 } from "reactflow";
 
-import "reactflow/dist/style.css";
-
 import { DepNode, type DepFlowNode } from "@/components/graph/DepNode";
 import { DepEdge, type DepEdgeData } from "@/components/graph/DepEdge";
 import { miniMapNodeColor } from "@/lib/palette";
