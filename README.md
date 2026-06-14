@@ -328,6 +328,53 @@ http://localhost:3000
 
 ---
 
+## Agent Workflow
+
+ProjectOracle follows a structured repository intelligence workflow that transforms repository metadata into actionable engineering insights.
+
+```text
+Repository URL
+      │
+      ▼
+Repository Analysis
+      │
+      ▼
+Dependency Extraction
+      │
+ ┌────┼────┬────┐
+ ▼    ▼    ▼    ▼
+Repository Overview
+Architecture Map
+Dependency Graph
+Impact Analysis
+      │
+      ▼
+Technical Debt Summary
+```
+
+### Workflow Stages
+
+1. **Repository Analysis**
+   - Load repository metadata and project structure.
+   - Collect language, module, and file statistics.
+
+2. **Dependency Extraction**
+   - Build relationships between modules and components.
+   - Identify architecture boundaries and dependency flows.
+
+3. **Architecture Mapping**
+   - Visualize high-level application, service, package, and infrastructure layers.
+
+4. **Impact Analysis**
+   - Estimate blast radius when a module changes.
+   - Surface affected files and engineering recommendations.
+
+5. **Technical Debt Detection**
+   - Highlight complexity hotspots.
+   - Detect duplication, coverage gaps, and outdated dependencies.
+
+This workflow provides developers with a fast way to understand unfamiliar repositories and evaluate engineering risk before making changes.
+
 ## Built with CyOps
 
 ProjectOracle was developed using CyOps multi-agent workflows.
