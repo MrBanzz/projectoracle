@@ -111,25 +111,37 @@ Responsive behavior:
 
 ## Screenshots
 
-### Repository Overview
+The following screenshots demonstrate the core repository intelligence capabilities provided by ProjectOracle.
 
-*(Add screenshot: docs/screenshots/repository-overview.png)*
+### Dashboard Overview
+
+![Dashboard Overview](screenshots/dashboard-overview.png)
+
+High-level repository metrics including health score, complexity, technical debt index, language breakdown, and test coverage.
 
 ### Architecture Map
 
-*(Add screenshot: docs/screenshots/architecture-map.png)*
+![Architecture Map](screenshots/architecture-map.png)
+
+Interactive layered architecture visualization showing relationships between applications, services, packages, and infrastructure components.
 
 ### Dependency Graph
 
-*(Add screenshot: docs/screenshots/dependency-graph.png)*
+![Dependency Graph](screenshots/dependency-graph.png)
+
+Visual dependency graph for exploring module relationships and understanding repository structure.
 
 ### Impact Analysis
 
-*(Add screenshot: docs/screenshots/impact-analysis.png)*
+![Impact Analysis](screenshots/impact-analysis.png)
+
+Change impact assessment showing blast radius, risk level, affected files, and engineering recommendations.
 
 ### Technical Debt Summary
 
-*(Add screenshot: docs/screenshots/tech-debt-summary.png)*
+![Technical Debt Summary](screenshots/tech-debt-summary.png)
+
+Prioritized technical debt findings including complexity hotspots, duplication issues, coverage gaps, and outdated dependencies.
 
 ---
 
