@@ -176,6 +176,27 @@ DependencyGraph --> ImpactAnalysis
 ImpactAnalysis --> TechDebtSummary[Technical Debt Summary]
 ```
 
+### System Components
+
+```text
+Repository URL
+      │
+      ▼
+Repository Analysis
+      │
+ ┌────┼────┐
+ ▼    ▼    ▼
+Architecture Map
+Dependency Graph
+Repository Overview
+      │
+      ▼
+Impact Analysis
+      │
+      ▼
+Technical Debt Summary
+```
+
 ### Architecture Overview
 
 ProjectOracle follows a panel-based architecture built on Next.js 14 and TypeScript. Repository data is loaded from a deterministic mock dataset and shared across all analysis views, ensuring reproducible results and consistent demonstrations.
@@ -314,12 +335,14 @@ ProjectOracle was developed using CyOps multi-agent workflows.
 Development lifecycle:
 
 1. Planning
-2. Acceptance Criteria generation
+2. Acceptance criteria generation
 3. Iterative implementation
 4. Automated review cycles
 5. Responsive layout verification
 6. Lighthouse performance validation
 7. Final acceptance verification
+
+CyOps was used throughout the project to accelerate planning, implementation, validation, and documentation while maintaining engineering quality and consistency.
 
 ### Project Statistics
 
@@ -365,3 +388,11 @@ CyOps was used for planning, implementation, review, validation, and project com
 ✅ Acceptance Criteria Complete
 
 ProjectOracle is ready for demonstration and submission.
+
+## Future Improvements
+
+- Live GitHub repository ingestion and analysis
+- Real-time dependency tracking
+- MCP server integration for AI agent workflows
+- AI-assisted refactoring recommendations
+- Multi-repository comparison and benchmarking
