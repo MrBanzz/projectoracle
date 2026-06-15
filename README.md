@@ -293,6 +293,34 @@ Production build and Lighthouse audits were verified during final acceptance.
 
 ---
 
+## Testing
+
+ProjectOracle was validated through build-time checks, linting, TypeScript validation, Lighthouse audits, and manual production testing.
+
+### Validation Commands
+
+```bash
+pnpm build
+pnpm lint
+pnpm --dir mcp-server build
+```
+
+### Verified Coverage
+
+- TypeScript compilation
+- Next.js production build
+- ESLint validation
+- Responsive layout verification
+- Unknown repository fallback state
+- React Flow rendering
+- Impact Analysis module selection
+- AI Engineering Recommendations
+- MCP server build validation
+
+The project was tested against both seeded demo repositories and the unknown repository fallback route.
+
+---
+
 ## Demo Repositories
 
 ### acme/payments-platform
@@ -439,6 +467,59 @@ AI Engineering Recommendations
 ```
 
 The MCP server exposes repository analysis capabilities over stdio and enables AI agents to query repository architecture, dependencies, impact reports, and technical debt findings programmatically.
+
+### Example MCP Output
+
+Tool call:
+
+```json
+{
+  "tool": "get_repository_overview",
+  "arguments": {
+    "repoId": "acme/payments-platform"
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "name": "acme/payments-platform",
+  "healthScore": 78,
+  "complexity": 32,
+  "techDebtIndex": 41,
+  "testCoverage": 73,
+  "primaryLanguage": "TypeScript"
+}
+```
+
+Tool call:
+
+```json
+{
+  "tool": "get_impact_analysis",
+  "arguments": {
+    "repoId": "acme/payments-platform",
+    "moduleId": "apps/web/pages/dashboard"
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "risk": "MEDIUM",
+  "blastRadiusFiles": 0,
+  "transitivelyAffectedFiles": 0,
+  "recommendations": [
+    "Add targeted tests around affected paths.",
+    "Use a staged rollout or feature flag when risk is elevated.",
+    "Review directly connected modules before merging."
+  ]
+}
+```
 
 ## Built with CyOps
 
