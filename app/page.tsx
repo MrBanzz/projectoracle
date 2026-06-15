@@ -5,6 +5,7 @@ import { ImpactAnalysis } from "@/components/panels/ImpactAnalysis";
 import { RepoOverview } from "@/components/panels/RepoOverview";
 import { RepoUrlInput } from "@/components/panels/RepoUrlInput";
 import { TechDebtSummary } from "@/components/panels/TechDebtSummary";
+import { ErrorBoundary } from "@/components/shell/ErrorBoundary";
 import { Sidebar } from "@/components/shell/Sidebar";
 import { TopBar } from "@/components/shell/TopBar";
 import { UnknownRepoFallback } from "@/components/shell/UnknownRepoFallback";
@@ -73,20 +74,22 @@ function PanelSlot({
   children: React.ReactNode;
 }) {
   return (
-    <Suspense
-      fallback={
-        <section
-          aria-label={aria}
-          className="rounded-lg border border-dashed border-border-subtle bg-surface-panel/40 p-6"
-        >
-          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-text-dim">
-            {label}
-          </p>
-          <p className="mt-2 font-mono text-xs text-text-dim">loading…</p>
-        </section>
-      }
-    >
-      {children}
-    </Suspense>
+    <ErrorBoundary label={label}>
+      <Suspense
+        fallback={
+          <section
+            aria-label={aria}
+            className="rounded-lg border border-dashed border-border-subtle bg-surface-panel/40 p-6"
+          >
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-text-dim">
+              {label}
+            </p>
+            <p className="mt-2 font-mono text-xs text-text-dim">loading…</p>
+          </section>
+        }
+      >
+        {children}
+      </Suspense>
+    </ErrorBoundary>
   );
 }
