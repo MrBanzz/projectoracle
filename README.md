@@ -396,6 +396,43 @@ and generates actionable recommendations for rollout strategy, testing prioritie
 
 This workflow demonstrates how repository intelligence can be combined with agent-assisted engineering decision support.
 
+## MCP Integration Roadmap
+
+ProjectOracle is designed to support future MCP (Model Context Protocol) integrations for AI-assisted repository intelligence.
+
+Planned MCP capabilities include:
+
+- Repository ingestion from GitHub
+- Automated architecture extraction
+- Dependency graph generation from source code
+- AI-assisted code review workflows
+- Repository health monitoring
+- Technical debt inspection for coding agents
+
+These integrations would allow ProjectOracle to analyze real repositories and expose repository intelligence tools directly to AI agents.
+
+### MCP Workflow
+
+```text
+GitHub Repository
+        │
+        ▼
+MCP Repository Server
+        │
+        ▼
+ProjectOracle Dashboard
+        │
+ ┌──────┼──────┬──────┐
+ ▼      ▼      ▼      ▼
+Architecture
+Dependencies
+Impact Analysis
+Technical Debt
+        │
+        ▼
+AI Engineering Recommendations
+```
+
 ## Built with CyOps
 
 ProjectOracle was developed using CyOps multi-agent workflows.
