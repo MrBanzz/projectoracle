@@ -323,13 +323,72 @@ function AIRecommendationSummary({
   impact: ImpactReport;
 }) {
   const riskText =
-  impact.risk === "CRITICAL"
-    ? "critical-risk"
-    : impact.risk === "HIGH"
-      ? "high-risk"
-      : impact.risk === "MEDIUM"
-        ? "medium-risk"
-        : "low-risk";
+    impact.risk === "CRITICAL"
+      ? "critical-risk"
+      : impact.risk === "HIGH"
+        ? "high-risk"
+        : impact.risk === "MEDIUM"
+          ? "medium-risk"
+          : "low-risk";
+
+  const aiRecommendations = {
+    LOW: [
+      {
+        label: "01 · Review",
+        text: "Standard peer review is sufficient for this low-risk module change.",
+      },
+      {
+        label: "02 · Tests",
+        text: "Run existing unit tests and verify the touched module still behaves as expected.",
+      },
+      {
+        label: "03 · Rollout",
+        text: "A normal deployment path is acceptable unless new dependencies are introduced.",
+      },
+    ],
+    MEDIUM: [
+      {
+        label: "01 · Guardrails",
+        text: "Add targeted tests around affected paths before changing this module.",
+      },
+      {
+        label: "02 · Review",
+        text: "Review downstream dependencies and confirm the module contract remains stable.",
+      },
+      {
+        label: "03 · Rollout",
+        text: "Use a staged rollout if the change touches user-facing behavior.",
+      },
+    ],
+    HIGH: [
+      {
+        label: "01 · Guardrails",
+        text: "Add regression tests and validate all directly connected modules before merge.",
+      },
+      {
+        label: "02 · Rollout",
+        text: "Use a feature flag or staged rollout because the blast radius is elevated.",
+      },
+      {
+        label: "03 · Review",
+        text: "Require review from owners of affected services before deployment.",
+      },
+    ],
+    CRITICAL: [
+      {
+        label: "01 · Freeze",
+        text: "Treat this as a release-blocking change until architecture review is complete.",
+      },
+      {
+        label: "02 · Validation",
+        text: "Run full regression coverage across affected modules before approval.",
+      },
+      {
+        label: "03 · Rollback",
+        text: "Prepare a rollback plan and production monitoring before rollout.",
+      },
+    ],
+  }[impact.risk] ?? [];
 
   return (
     <div className="rounded-lg border border-accent-cyan/30 bg-accent-cyan/5 p-4">
@@ -359,31 +418,18 @@ function AIRecommendationSummary({
       </p>
 
       <ul className="mt-4 grid gap-2 text-sm text-text-muted md:grid-cols-3">
-        <li className="rounded border border-border-subtle bg-surface-base/60 p-3">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-dim">
-            01 · Guardrails
-          </span>
-          <p className="mt-1">
-            Add targeted tests around affected paths before changing this module.
-          </p>
-        </li>
-        <li className="rounded border border-border-subtle bg-surface-base/60 p-3">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-dim">
-            02 · Rollout
-          </span>
-          <p className="mt-1">
-            Use a staged rollout or feature flag when the blast radius is elevated.
-          </p>
-        </li>
-        <li className="rounded border border-border-subtle bg-surface-base/60 p-3">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-dim">
-            03 · Review
-          </span>
-          <p className="mt-1">
-            Review directly connected modules before merging the change.
-          </p>
-        </li>
-      </ul>
+  {aiRecommendations.map((item) => (
+    <li
+      key={item.label}
+      className="rounded border border-border-subtle bg-surface-base/60 p-3"
+    >
+      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-dim">
+        {item.label}
+      </span>
+      <p className="mt-1">{item.text}</p>
+    </li>
+  ))}
+</ul>
     </div>
   );
 }
