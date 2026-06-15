@@ -396,20 +396,25 @@ and generates actionable recommendations for rollout strategy, testing prioritie
 
 This workflow demonstrates how repository intelligence can be combined with agent-assisted engineering decision support.
 
-## MCP Integration Roadmap
+## MCP Server
 
-ProjectOracle is designed to support future MCP (Model Context Protocol) integrations for AI-assisted repository intelligence.
+ProjectOracle includes a lightweight MCP (Model Context Protocol) server implementation that exposes repository intelligence tools for AI agents.
 
-Planned MCP capabilities include:
+### Available MCP Tools
 
-- Repository ingestion from GitHub
-- Automated architecture extraction
-- Dependency graph generation from source code
-- AI-assisted code review workflows
-- Repository health monitoring
-- Technical debt inspection for coding agents
+- `list_demo_repositories`
+- `get_repository_overview`
+- `get_architecture_map`
+- `get_dependency_graph`
+- `get_impact_analysis`
+- `get_technical_debt`
 
-These integrations would allow ProjectOracle to analyze real repositories and expose repository intelligence tools directly to AI agents.
+### Running the MCP Server
+
+```bash
+pnpm --dir mcp-server build
+pnpm --dir mcp-server start
+```
 
 ### MCP Workflow
 
@@ -432,6 +437,8 @@ Technical Debt
         ▼
 AI Engineering Recommendations
 ```
+
+The MCP server exposes repository analysis capabilities over stdio and enables AI agents to query repository architecture, dependencies, impact reports, and technical debt findings programmatically.
 
 ## Built with CyOps
 
