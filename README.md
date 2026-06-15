@@ -137,6 +137,12 @@ Visual dependency graph for exploring module relationships and understanding rep
 
 Change impact assessment showing blast radius, risk level, affected files, and engineering recommendations.
 
+### AI Engineering Recommendations
+
+![AI Engineering Recommendations](screenshots/ai-recommendations.png)
+
+Agent-assisted engineering guidance generated from dependency relationships, risk levels, blast-radius analysis, and repository intelligence signals.
+
 ### Technical Debt Summary
 
 ![Technical Debt Summary](screenshots/tech-debt-summary.png)
@@ -374,6 +380,21 @@ Technical Debt Summary
    - Detect duplication, coverage gaps, and outdated dependencies.
 
 This workflow provides developers with a fast way to understand unfamiliar repositories and evaluate engineering risk before making changes.
+
+## AI-Assisted Engineering Workflow
+
+ProjectOracle includes an AI recommendation layer that transforms repository analysis into engineering guidance.
+
+The system evaluates:
+
+- Dependency relationships
+- Module risk levels
+- Blast radius
+- Downstream impact
+
+and generates actionable recommendations for rollout strategy, testing priorities, and code review focus areas.
+
+This workflow demonstrates how repository intelligence can be combined with agent-assisted engineering decision support.
 
 ## Built with CyOps
 
